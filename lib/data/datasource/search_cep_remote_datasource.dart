@@ -9,17 +9,18 @@ import 'package:http/http.dart' as http;
 import '../models/search_cep_model.dart';
 
 abstract class ISearchCepRemoteDataSource {
-  Future<SearchCepModel> searchCepModel(int search);
+  Future<SearchCepModel> searchCepModel(String search);
 }
 
 class SearchCepRemoteDataSource implements ISearchCepRemoteDataSource {
   final client = http.Client();
   final INetworkInfo networkInfo;
-  final searchCep = Uri.parse((EndPoints.url + EndPoints.search));
+
   SearchCepRemoteDataSource(this.networkInfo);
 
   @override
-  Future<SearchCepModel> searchCepModel(int search) async {
+  Future<SearchCepModel> searchCepModel(String search) async {
+    final searchCep = Uri.parse(('${EndPoints.url}$search${EndPoints.search}'));
     if (await networkInfo.isConnected) {
       final response = await client.get(searchCep);
       switch (response.statusCode) {

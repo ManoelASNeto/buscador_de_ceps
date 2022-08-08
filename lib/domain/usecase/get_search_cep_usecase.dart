@@ -8,7 +8,7 @@ class GetSearchCepUsecase {
 
   GetSearchCepUsecase(this.repository);
 
-  Future<Either<Failure, SearchCepEntity>> call(int search) async {
+  Future<Either<Failure, SearchCepEntity>> call(String search) async {
     return await repository.getSearchCep(search);
   }
 }

@@ -1,4 +1,4 @@
 class EndPoints {
-  static const url = 'viacep.com/ws';
+  static const url = 'https://viacep.com.br/ws/';
   static const search = '/json/';
 }

@@ -11,7 +11,7 @@ class SearchCepRepository implements ISearchCepRepository {
   SearchCepRepository(this.remoteDataSource);
 
   @override
-  Future<Either<Failure, SearchCepEntity>> getSearchCep(int search) async {
+  Future<Either<Failure, SearchCepEntity>> getSearchCep(String search) async {
     try {
       var cep = await remoteDataSource.searchCepModel(search);
       final entity = cep.toEntity();

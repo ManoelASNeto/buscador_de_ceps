@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class SearchCepEntity extends Equatable {
-  final int? zipCode;
+  final String? zipCode;
   final String? publicPlace;
   final String? district;
   final String? location;

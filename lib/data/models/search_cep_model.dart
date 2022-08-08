@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../domain/entity/search_cep_entity.dart';
 
 class SearchCepModel extends Equatable {
-  final int? zipCode;
+  final String? zipCode;
   final String? publicPlace;
   final String? district;
   final String? location;

@@ -1,7 +1,7 @@
 abstract class SearchCepEvent {}
 
 class CepEvent extends SearchCepEvent {
-  int search;
+  String search;
 
   CepEvent(this.search);
 }
