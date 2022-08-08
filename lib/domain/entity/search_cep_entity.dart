@@ -6,14 +6,15 @@ class SearchCepEntity extends Equatable {
   final String? district;
   final String? location;
   final String? stateAbreviation;
+  final String? ddd;
 
-  const SearchCepEntity({
-    this.zipCode,
-    this.publicPlace,
-    this.district,
-    this.location,
-    this.stateAbreviation,
-  });
+  const SearchCepEntity(
+      {this.zipCode,
+      this.publicPlace,
+      this.district,
+      this.location,
+      this.stateAbreviation,
+      this.ddd});
 
   @override
   List<Object?> get props => [
@@ -22,5 +23,6 @@ class SearchCepEntity extends Equatable {
         district,
         location,
         stateAbreviation,
+        ddd,
       ];
 }

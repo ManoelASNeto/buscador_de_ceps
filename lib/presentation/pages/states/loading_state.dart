@@ -52,8 +52,9 @@ class LoadingState extends StatelessWidget {
                 height: 80,
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(15),
                 child: TextField(
+                  textAlign: TextAlign.center,
                   controller: controller,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration.collapsed(
@@ -63,7 +64,8 @@ class LoadingState extends StatelessWidget {
                       ),
                     ),
                     hintText: 'Digite o seu CEP',
-                    hintStyle: TextStyle(fontSize: 25),
+                    hintStyle:
+                        TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                   ),
                   maxLength: 8,
                 ),
@@ -80,11 +82,15 @@ class LoadingState extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    elevation: 2,
+                    elevation: 4,
+                    backgroundColor: Colors.blue,
                     shadowColor: Colors.yellow),
                 child: const Padding(
-                  padding: EdgeInsets.only(right: 35.0, left: 35.0),
-                  child: Text('Pesquisar'),
+                  padding: EdgeInsets.only(right: 35, left: 35),
+                  child: Text(
+                    'Pesquisar',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ),
             ],

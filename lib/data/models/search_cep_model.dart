@@ -8,6 +8,7 @@ class SearchCepModel extends Equatable {
   final String? district;
   final String? location;
   final String? stateAbreviation;
+  final String? ddd;
 
   const SearchCepModel({
     this.zipCode,
@@ -15,6 +16,7 @@ class SearchCepModel extends Equatable {
     this.district,
     this.location,
     this.stateAbreviation,
+    this.ddd,
   });
 
   @override
@@ -24,15 +26,16 @@ class SearchCepModel extends Equatable {
         district,
         location,
         stateAbreviation,
+        ddd,
       ];
 
   factory SearchCepModel.fromJson(Map<String, dynamic> json) => SearchCepModel(
-        zipCode: json['cep'],
-        publicPlace: json['logradouro'],
-        district: json['bairro'],
-        location: json['localidade'],
-        stateAbreviation: json['uf'],
-      );
+      zipCode: json['cep'],
+      publicPlace: json['logradouro'],
+      district: json['bairro'],
+      location: json['localidade'],
+      stateAbreviation: json['uf'],
+      ddd: json['ddd']);
 
   factory SearchCepModel.toEntity(SearchCepEntity entity) => SearchCepModel(
         zipCode: entity.zipCode,
@@ -40,6 +43,7 @@ class SearchCepModel extends Equatable {
         district: entity.district,
         location: entity.location,
         stateAbreviation: entity.stateAbreviation,
+        ddd: entity.ddd,
       );
 
   SearchCepEntity toEntity() => SearchCepEntity(
@@ -48,5 +52,6 @@ class SearchCepModel extends Equatable {
         district: district,
         location: location,
         stateAbreviation: stateAbreviation,
+        ddd: ddd,
       );
 }

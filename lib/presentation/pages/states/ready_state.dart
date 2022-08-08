@@ -56,25 +56,23 @@ class ReadyState extends StatelessWidget {
               const SizedBox(
                 height: 80,
               ),
-              SizedBox(
-                height: 70,
-                width: MediaQuery.of(context).size.width - 20,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: controller,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration.collapsed(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(16),
-                        ),
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  controller: controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration.collapsed(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(16),
                       ),
-                      hintText: 'Digite o seu CEP',
-                      hintStyle: TextStyle(fontSize: 25),
                     ),
-                    maxLength: 8,
+                    hintText: 'Digite o seu CEP',
+                    hintStyle:
+                        TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                   ),
+                  maxLength: 8,
                 ),
               ),
               const SizedBox(
@@ -91,56 +89,79 @@ class ReadyState extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    elevation: 2,
+                    elevation: 4,
+                    backgroundColor: Colors.blue,
                     shadowColor: Colors.yellow),
                 child: const Padding(
                   padding: EdgeInsets.only(right: 35, left: 35),
-                  child: Text('Pesquisar'),
+                  child: Text(
+                    'Pesquisar',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 50,
               ),
-              Card(
-                margin: const EdgeInsets.all(20),
-                elevation: 10,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Logradouro: ${cep?.publicPlace ?? 'Não Encontrado'}',
-                        style: const TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 20, 100, 238)),
+              Expanded(
+                child: Card(
+                  margin: const EdgeInsets.all(20),
+                  elevation: 10,
+                  shadowColor: Colors.yellow,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'CEP: ${cep?.zipCode ?? '00000000'}',
+                            style: const TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        'Bairro: ${cep?.district ?? ''}',
-                        style: const TextStyle(fontSize: 16),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Logradouro: ${cep?.publicPlace ?? 'Não Encontrado'}',
+                          style: const TextStyle(
+                              fontSize: 18,
+                              color: Color.fromARGB(255, 20, 100, 238)),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Cidade: ${cep?.location ?? ''}',
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          'Bairro: ${cep?.district ?? ''}',
                           style: const TextStyle(fontSize: 16),
                         ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Text(cep?.stateAbreviation ?? ''),
-                      ],
-                    ),
-                  ],
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Cidade: ${cep?.location ?? ''} -',
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(cep?.stateAbreviation ?? ''),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Text('DDD: ${cep?.ddd ?? '--'}')
+                    ],
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),
